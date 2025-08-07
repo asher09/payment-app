@@ -19,7 +19,6 @@ app.post("/hdfcWebhook", async (req, res) => {
     };
 
     try {
-        console.log("parsed body", paymentInformation.token, paymentInformation.userId, paymentInformation.amount);
         await db.$transaction([
             db.balance.updateMany({
                 where: {
