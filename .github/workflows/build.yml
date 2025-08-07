@@ -3,10 +3,10 @@ name: Build on PR
 on:
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
-  builds:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -19,7 +19,7 @@ jobs:
         run: npm install
 
       - name: Generate Prisma Client
-        run: npm run db:generate
+        run: npx prisma generate
 
       - name: Run Build
         run: npm run build
